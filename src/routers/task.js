@@ -30,7 +30,9 @@ router.get('/tasks', auth, async(req, res) => {
     //empty object for sorting
     const sort = {}
 
+    //if completed declared in query
     if (req.query.completed) {
+        //set match.completed to the value declared
         match.completed = req.query.completed === 'true'
     }
 

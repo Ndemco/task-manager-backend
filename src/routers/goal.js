@@ -27,7 +27,12 @@ router.post('/goals/create', auth, async(req, res) => {
         })
 
         //get percentage of complete tasks
-        percentComplete = numComplete / numTasks
+        //protect against division by 0
+        if (numTasks === 0) {
+            percentComplete = 0
+        } else {
+            percentComplete = numComplete / numTasks
+        }
 
     } catch (e) {
         console.log('Error: ' + e)
@@ -51,7 +56,30 @@ router.post('/goals/create', auth, async(req, res) => {
 })
 
 router.get('/goals/read', auth, async(req, res) => {
-    // read goals
+
+    //empty object for sorting
+    const sort = {}
+
+    if (req.query.sortBy) {
+        //split sortBy query into two values (will eventually be object property and value)
+        const parts = req.query.sortBy.split(':')
+
+        //parts[0] becomes the name of a property on sort{}
+        //parts[1] determines the value of that property
+        sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
+    }
+
+    const currentDate = new Date()
+
+    try {
+        await req.user.populate({
+            path: 'goals',
+            match: { endDate: { $gte: currentDate } },
+        }).execPopulate()
+        res.send(req.user.goals)
+    } catch (e) {
+        res.status(500).send(e)
+    }
 })
 
 module.exports = router

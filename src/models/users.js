@@ -3,6 +3,7 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Task = require('./tasks')
+const Goal = require('./goals')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -51,6 +52,12 @@ const userSchema = new mongoose.Schema({
  */
 userSchema.virtual('tasks', {
     ref: 'Tasks',
+    localField: '_id',
+    foreignField: 'owner'
+})
+
+userSchema.virtual('goals', {
+    ref: 'Goals',
     localField: '_id',
     foreignField: 'owner'
 })
@@ -113,6 +120,14 @@ userSchema.pre('remove', async function(next) {
     const user = this
 
     await Task.deleteMany({ owner: user._id })
+
+    next()
+})
+
+userSchema.pre('remove', async function(next) {
+    const user = this
+
+    await Goal.deleteMany({ owner: user._id })
 
     next()
 })
