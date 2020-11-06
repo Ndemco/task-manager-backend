@@ -37,14 +37,33 @@ goalSchema.virtual('tasks', {
     foreignField: 'owner'
 })
 
-goalSchema.pre('save', async function(next) {
-    const user = this
+goalSchema.pre('/goals/read', async function(next) {
+    const goal = this
 
-    if (user.isModified('password')) {
-        user.password = await bcrypt.hash(user.password, 8)
+    try {
+        //populate all the user's tasks from within date range of goal
+        const tasks = await req.user.populate({
+            path: 'tasks',
+            //filter by due date of task <= endDate of goal && >= startDate of goal
+            match: { dueDate: { $lte: endDate, $gte: startDate } }
+        }).execPopulate()
+
+        //calculate total number of tasks and number of complete tasks
+        req.user.tasks.forEach((task) => {
+            numTasks++
+            if (task.completed) {
+                numComplete++
+            }
+        })
+
+        //get percentage of complete tasks
+        percentComplete = numComplete / numTasks
+        goal.percentComplete = percentComplete.toFixed(2) * 100
+    } catch (e) {
+        console.log('Error: ' + e)
     }
 
-    next()
+    await goal.save()
 })
 
 const Goal = mongoose.model('Goals', goalSchema)

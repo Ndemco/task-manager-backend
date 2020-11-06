@@ -50,9 +50,8 @@ router.post('/goals/create', auth, async(req, res) => {
     }
 })
 
-router.post('/test', auth, async(req, res) => {
-    console.log(req)
-    res.send(200)
+router.get('/goals/read', auth, async(req, res) => {
+    // read goals
 })
 
 module.exports = router
