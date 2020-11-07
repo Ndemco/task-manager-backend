@@ -55,7 +55,7 @@ router.post('/goals/create', auth, async(req, res) => {
     }
 })
 
-router.get('/goals/read', auth, async(req, res) => {
+router.get('/goals/read/all', auth, async(req, res) => {
 
     //empty object for sorting
     const sort = {}
@@ -80,6 +80,74 @@ router.get('/goals/read', auth, async(req, res) => {
         res.send(req.user.goals)
     } catch (e) {
         res.status(500).send(e)
+    }
+})
+
+//get a task by id
+router.get('/goals/read/:id', auth, async(req, res) => {
+    const _id = req.params.id
+
+    try {
+        const goal = await Goal.findOne({ _id, owner: req.user._id })
+
+        if (!goal) {
+            return res.status(404).send()
+        }
+
+        res.send(goal)
+    } catch (e) {
+        res.status(500).send()
+    }
+})
+
+//update goal
+router.patch('/goals/update/:id', auth, async(req, res) => {
+    //returns array of strings of object properties
+    const updates = Object.keys(req.body)
+
+    //array of object properties the user can update
+    const allowedUpdates = ['startDate', 'endDate', 'percentGoal']
+
+    //now we want to determine if every string in updates
+    // is an allowable update
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+
+    if (!isValidOperation) {
+        return res.status(400).send({ error: 'Invalid updates' })
+    }
+
+    //at this point we know every field the user wants to update is updateable
+    try {
+        const goal = await Goal.findOne({ _id: req.params.id, owner: req.user._id })
+
+        //updates each property with newly supplied property
+        updates.forEach((update) => goal[update] = req.body[update])
+        await goal.save()
+
+
+        if (!goal) {
+            //no goal for given ID, return 404 error
+            return res.status(404).send()
+        }
+        // else send updated goal
+        res.send(goal)
+    } catch (e) {
+        res.status(400).send(e);
+    }
+})
+
+//delete goal
+router.delete('/goals/delete/:id', auth, async(req, res) => {
+    try {
+        const goal = await Goal.findOneAndDelete({ _id: req.params.id, owner: req.user._id })
+
+        if (!goal) {
+            return res.status(404).send()
+        }
+
+        res.send(goal)
+    } catch (e) {
+        res.status(500).send()
     }
 })
 
