@@ -71,6 +71,7 @@ router.get('/goals/read', auth, async(req, res) => {
 
     const currentDate = new Date()
 
+    //populate goals that are not past due
     try {
         await req.user.populate({
             path: 'goals',
