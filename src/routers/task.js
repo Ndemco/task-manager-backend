@@ -84,7 +84,7 @@ router.patch('/tasks/:id', auth, async(req, res) => {
     const updates = Object.keys(req.body)
 
     //array of object properties the user can update
-    const allowedUpdates = ['description', 'completed']
+    const allowedUpdates = ['description', 'completed', 'dueDate']
 
     //now we want to determine if every string in updates
     // is an allowable update
