@@ -30,7 +30,9 @@ router.get('/tasks', auth, async(req, res) => {
     //empty object for sorting
     const sort = {}
 
+    //if completed declared in query
     if (req.query.completed) {
+        //set match.completed to the value declared
         match.completed = req.query.completed === 'true'
     }
 
@@ -82,7 +84,7 @@ router.patch('/tasks/:id', auth, async(req, res) => {
     const updates = Object.keys(req.body)
 
     //array of object properties the user can update
-    const allowedUpdates = ['description', 'completed']
+    const allowedUpdates = ['description', 'completed', 'dueDate']
 
     //now we want to determine if every string in updates
     // is an allowable update

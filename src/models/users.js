@@ -3,6 +3,7 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Task = require('./tasks')
+const Goal = require('./goals')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -29,7 +30,10 @@ const userSchema = new mongoose.Schema({
         trim: true,
         validate(value) {
             if (value.toLowerCase().includes('password')) {
-                throw new Error('Password cannot be "password"')
+                throw new Error('Password cannot have "password" in it')
+            }
+            if (value.length < 7) {
+                throw new Error('Password must be at least 7 characters')
             }
         }
     },
@@ -51,6 +55,12 @@ const userSchema = new mongoose.Schema({
  */
 userSchema.virtual('tasks', {
     ref: 'Tasks',
+    localField: '_id',
+    foreignField: 'owner'
+})
+
+userSchema.virtual('goals', {
+    ref: 'Goals',
     localField: '_id',
     foreignField: 'owner'
 })
@@ -113,6 +123,14 @@ userSchema.pre('remove', async function(next) {
     const user = this
 
     await Task.deleteMany({ owner: user._id })
+
+    next()
+})
+
+userSchema.pre('remove', async function(next) {
+    const user = this
+
+    await Goal.deleteMany({ owner: user._id })
 
     next()
 })

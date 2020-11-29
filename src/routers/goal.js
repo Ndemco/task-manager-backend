@@ -27,7 +27,12 @@ router.post('/goals/create', auth, async(req, res) => {
         })
 
         //get percentage of complete tasks
-        percentComplete = numComplete / numTasks
+        //protect against division by 0
+        if (numTasks === 0) {
+            percentComplete = 0
+        } else {
+            percentComplete = numComplete / numTasks
+        }
 
     } catch (e) {
         console.log('Error: ' + e)
@@ -50,9 +55,102 @@ router.post('/goals/create', auth, async(req, res) => {
     }
 })
 
-router.post('/test', auth, async(req, res) => {
-    console.log(req)
-    res.send(200)
+router.get('/goals/read/all', auth, async(req, res) => {
+
+    //empty object for sorting
+    const sort = {}
+
+    if (req.query.sortBy) {
+        //split sortBy query into two values (will eventually be object property and value)
+        const parts = req.query.sortBy.split(':')
+
+        //parts[0] becomes the name of a property on sort{}
+        //parts[1] determines the value of that property
+        sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
+    }
+
+    const currentDate = new Date()
+    db.data.save( { date: currentDate,
+        offset: now.getTimezoneOffset() } );
+
+    //populate goals that are not past due
+    try {
+        await req.user.populate({
+            path: 'goals',
+            match: { endDate: { $gte: currentDate } },
+        }).execPopulate()
+        res.send(req.user.goals)
+    } catch (e) {
+        res.status(500).send(e)
+    }
+})
+
+//get a task by id
+router.get('/goals/read/:id', auth, async(req, res) => {
+    const _id = req.params.id
+
+    try {
+        const goal = await Goal.findOne({ _id, owner: req.user._id })
+
+        if (!goal) {
+            return res.status(404).send()
+        }
+
+        res.send(goal)
+    } catch (e) {
+        res.status(500).send()
+    }
+})
+
+//update goal
+router.patch('/goals/update/:id', auth, async(req, res) => {
+    //returns array of strings of object properties
+    const updates = Object.keys(req.body)
+
+    //array of object properties the user can update
+    const allowedUpdates = ['startDate', 'endDate', 'percentGoal']
+
+    //now we want to determine if every string in updates
+    // is an allowable update
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+
+    if (!isValidOperation) {
+        return res.status(400).send({ error: 'Invalid updates' })
+    }
+
+    //at this point we know every field the user wants to update is updateable
+    try {
+        const goal = await Goal.findOne({ _id: req.params.id, owner: req.user._id })
+
+        //updates each property with newly supplied property
+        updates.forEach((update) => goal[update] = req.body[update])
+        await goal.save()
+
+
+        if (!goal) {
+            //no goal for given ID, return 404 error
+            return res.status(404).send()
+        }
+        // else send updated goal
+        res.send(goal)
+    } catch (e) {
+        res.status(400).send(e);
+    }
+})
+
+//delete goal
+router.delete('/goals/delete/:id', auth, async(req, res) => {
+    try {
+        const goal = await Goal.findOneAndDelete({ _id: req.params.id, owner: req.user._id })
+
+        if (!goal) {
+            return res.status(404).send()
+        }
+
+        res.send(goal)
+    } catch (e) {
+        res.status(500).send()
+    }
 })
 
 module.exports = router
