@@ -10,7 +10,7 @@ const goalRouter = require('./routers/goal')
 const app = express()
 
 //whatever is in the environment variable "PORT", or localhost if nothing is there
-const port = process.env.PORT || 5000
+const port = process.env.PORT
 
 //this tells the app to automatically parse incoming JSON to an object
 app.use(bodyParser.json())
