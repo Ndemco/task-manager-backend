@@ -70,6 +70,8 @@ router.get('/goals/read/all', auth, async(req, res) => {
     }
 
     const currentDate = new Date()
+    db.data.save( { date: currentDate,
+        offset: now.getTimezoneOffset() } );
 
     //populate goals that are not past due
     try {
