@@ -131,7 +131,7 @@ router.patch('/goals/update/:id', auth, async(req, res) => {
             //no goal for given ID, return 404 error
             return res.status(404).send()
         }
-        // else send updated goal
+        //else send updated goal
         res.send(goal)
     } catch (e) {
         res.status(400).send(e);
