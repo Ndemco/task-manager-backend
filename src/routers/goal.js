@@ -1,6 +1,7 @@
 const express = require('express')
 const Goal = require('../models/goals')
 const auth = require('../middleware/auth')
+const User = require('../models/users')
 const router = new express.Router()
 
 //create a goal
@@ -56,7 +57,8 @@ router.post('/goals/create', auth, async(req, res) => {
 })
 
 router.get('/goals/read/all', auth, async(req, res) => {
-
+   Goal.update({
+   })
     //empty object for sorting
     const sort = {}
 
@@ -70,8 +72,6 @@ router.get('/goals/read/all', auth, async(req, res) => {
     }
 
     const currentDate = new Date()
-    db.data.save( { date: currentDate,
-        offset: now.getTimezoneOffset() } );
 
     //populate goals that are not past due
     try {

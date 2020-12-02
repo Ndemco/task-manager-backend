@@ -9,7 +9,7 @@ const taskSchema = new mongoose.Schema({
     },
     dueDate: {
         type: Date,
-        require: true
+        required: true
     },
     completed: {
         type: Boolean,
@@ -20,8 +20,6 @@ const taskSchema = new mongoose.Schema({
         required: true,
         ref: 'Users'
     }
-}, {
-    timestamps: true
 })
 
 const Task = mongoose.model('Tasks', taskSchema)

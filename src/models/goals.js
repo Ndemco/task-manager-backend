@@ -9,6 +9,7 @@ const goalSchema = new mongoose.Schema({
     startDate: {
         type: Date,
         required: true
+        
     },
     endDate: {
         type: Date,
@@ -31,8 +32,6 @@ const goalSchema = new mongoose.Schema({
         required: true,
         ref: 'Users'
     }
-}, {
-    timestamps: true
 })
 
 goalSchema.virtual('tasks', {
@@ -41,8 +40,12 @@ goalSchema.virtual('tasks', {
     foreignField: 'owner'
 })
 
-goalSchema.pre('/goals/read', async function(next) {
+
+goalSchema.pre('update', async function(next) {
     const goal = this
+    var numTasks = 0
+    var numComplete = 0
+    var percentComplete = 0
 
     try {
         //populate all the user's tasks from within date range of goal
@@ -66,8 +69,7 @@ goalSchema.pre('/goals/read', async function(next) {
     } catch (e) {
         console.log('Error: ' + e)
     }
-
-    await goal.save()
+    next()
 })
 
 const Goal = mongoose.model('Goals', goalSchema)
