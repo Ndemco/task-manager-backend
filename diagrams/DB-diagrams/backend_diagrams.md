@@ -58,8 +58,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 
 ##### 1.1.1 **OYL** Entity Relationship Diagram
 
-![Hackolade image](/backend_diagrams/image2.png?raw=true)
-
 ##### 1.1.2 **OYL** Properties
 
 ##### 1.1.2.1 **Details** tab
@@ -74,8 +72,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 
 ### <a id="b61a1390-34fb-11eb-880d-bfcd2d7288f6"></a>2.1 Database **goalSchema.js**
 
-![Hackolade image](/backend_diagrams/image3.png?raw=true)
-
 ##### 2.1.1 **goalSchema.js** Properties
 
 <table class="collection-properties-table"><thead><tr><td>Property</td><td>Value</td></tr></thead><tbody><tr><td>Database name</td><td>goalSchema.js</td></tr><tr><td>Technical name</td><td></td></tr><tr><td>Activated</td><td>true</td></tr><tr><td>Enable sharding</td><td></td></tr><tr><td>Description</td><td><div class="docs-markdown"></div></td></tr><tr><td>Comments</td><td><div class="docs-markdown"></div></td></tr></tbody></table>
@@ -86,7 +82,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 
 ##### 2.1.2.1.1 **goalSchema** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image4.png?raw=true)
 
 ##### 2.1.2.1.2 **goalSchema** Properties
 
@@ -100,8 +95,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 
 ##### 2.1.2.1.3.1.1 **name** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image5.png?raw=true)
-
 ##### 2.1.2.1.3.1.2 **name** properties
 
 <table><thead><tr><td>Property</td><td>Value</td></tr></thead><tbody><tr><td>Name</td><td>name</td></tr><tr><td>Technical name</td><td></td></tr><tr><td>Activated</td><td>true</td></tr><tr><td>Id</td><td></td></tr><tr><td>Type</td><td>string</td></tr><tr><td>Description</td><td><div class="docs-markdown"></div></td></tr><tr><td>Dependencies</td><td></td></tr><tr><td>Required</td><td>true</td></tr><tr><td>Primary key</td><td>false</td></tr><tr><td>Foreign collection</td><td></td></tr><tr><td>Foreign field</td><td></td></tr><tr><td>Relationship type</td><td></td></tr><tr><td>Default</td><td></td></tr><tr><td>Min length</td><td></td></tr><tr><td>Max length</td><td></td></tr><tr><td>Pattern</td><td></td></tr><tr><td>Format</td><td></td></tr><tr><td>Enum</td><td></td></tr><tr><td>Sample</td><td></td></tr><tr><td>Comments</td><td><div class="docs-markdown"></div></td></tr></tbody></table>
@@ -109,8 +102,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 ### <a id="b611af21-34fb-11eb-880d-bfcd2d7288f6"></a>2.1.2.1.3.2 Field **startDate**
 
 ##### 2.1.2.1.3.2.1 **startDate** Tree Diagram
-
-![Hackolade image](/backend_diagrams/image6.png?raw=true)
 
 ##### 2.1.2.1.3.2.2 **startDate** properties
 
@@ -120,8 +111,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 
 ##### 2.1.2.1.3.3.1 **endDate** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image7.png?raw=true)
-
 ##### 2.1.2.1.3.3.2 **endDate** properties
 
 <table><thead><tr><td>Property</td><td>Value</td></tr></thead><tbody><tr><td>Name</td><td>endDate</td></tr><tr><td>Technical name</td><td></td></tr><tr><td>Activated</td><td>true</td></tr><tr><td>Id</td><td></td></tr><tr><td>Type</td><td>date</td></tr><tr><td>Description</td><td><div class="docs-markdown"></div></td></tr><tr><td>Dependencies</td><td></td></tr><tr><td>Required</td><td>true</td></tr><tr><td>Primary key</td><td>false</td></tr><tr><td>Foreign collection</td><td></td></tr><tr><td>Foreign field</td><td></td></tr><tr><td>Relationship type</td><td></td></tr><tr><td>Default</td><td></td></tr><tr><td>Sample</td><td></td></tr><tr><td>Comments</td><td><div class="docs-markdown"></div></td></tr></tbody></table>
@@ -129,8 +118,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 ### <a id="b611af23-34fb-11eb-880d-bfcd2d7288f6"></a>2.1.2.1.3.4 Field **completed**
 
 ##### 2.1.2.1.3.4.1 **completed** Tree Diagram
-
-![Hackolade image](/backend_diagrams/image8.png?raw=true)
 
 ##### 2.1.2.1.3.4.2 **completed** properties
 
@@ -140,7 +127,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 
 ##### 2.1.2.1.3.5.1 **percentGoal** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image9.png?raw=true)
 
 ##### 2.1.2.1.3.5.2 **percentGoal** properties
 
@@ -150,7 +136,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 
 ##### 2.1.2.1.3.6.1 **percentComplete** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image10.png?raw=true)
 
 ##### 2.1.2.1.3.6.2 **percentComplete** properties
 
@@ -160,7 +145,6 @@ Created with: [Hackolade](https://hackolade.com/) - Visual data modeling for NoS
 
 ##### 2.1.2.1.3.7.1 **owner** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image11.png?raw=true)
 
 ##### 2.1.2.1.3.7.2 **owner** properties
 
@@ -285,7 +269,6 @@ db.createCollection( "goalSchema",{
 
 ### <a id="37927480-34fc-11eb-880d-bfcd2d7288f6"></a>2.2 Database **task-manager-api**
 
-![Hackolade image](/backend_diagrams/image12.png?raw=true)
 
 ##### 2.2.1 **task-manager-api** Properties
 
@@ -297,7 +280,6 @@ db.createCollection( "goalSchema",{
 
 ##### 2.2.2.1.1 **users** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image13.png?raw=true)
 
 ##### 2.2.2.1.2 **users** Properties
 
@@ -311,7 +293,6 @@ db.createCollection( "goalSchema",{
 
 ##### 2.2.2.1.3.1.1 **\_id** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image14.png?raw=true)
 
 ##### 2.2.2.1.3.1.2 **\_id** properties
 
@@ -321,7 +302,6 @@ db.createCollection( "goalSchema",{
 
 ##### 2.2.2.1.3.2.1 **name** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image15.png?raw=true)
 
 ##### 2.2.2.1.3.2.2 **name** properties
 
@@ -331,7 +311,6 @@ db.createCollection( "goalSchema",{
 
 ##### 2.2.2.1.3.3.1 **email** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image16.png?raw=true)
 
 ##### 2.2.2.1.3.3.2 **email** properties
 
@@ -341,7 +320,6 @@ db.createCollection( "goalSchema",{
 
 ##### 2.2.2.1.3.4.1 **password** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image17.png?raw=true)
 
 ##### 2.2.2.1.3.4.2 **password** properties
 
@@ -351,7 +329,6 @@ db.createCollection( "goalSchema",{
 
 ##### 2.2.2.1.3.5.1 **tokens** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image18.png?raw=true)
 
 ##### 2.2.2.1.3.5.2 **tokens** Hierarchy
 
@@ -369,7 +346,6 @@ Child field(s):
 
 ##### 2.2.2.1.3.6.1 **\[0\]** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image19.png?raw=true)
 
 ##### 2.2.2.1.3.6.2 **\[0\]** Hierarchy
 
@@ -387,7 +363,6 @@ Child field(s):
 
 ##### 2.2.2.1.3.7.1 **\_id** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image20.png?raw=true)
 
 ##### 2.2.2.1.3.7.2 **\_id** properties
 
@@ -397,7 +372,6 @@ Child field(s):
 
 ##### 2.2.2.1.3.8.1 **token** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image21.png?raw=true)
 
 ##### 2.2.2.1.3.8.2 **token** properties
 
@@ -407,7 +381,6 @@ Child field(s):
 
 ##### 2.2.2.1.3.9.1 **createdAt** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image22.png?raw=true)
 
 ##### 2.2.2.1.3.9.2 **createdAt** properties
 
@@ -417,8 +390,6 @@ Child field(s):
 
 ##### 2.2.2.1.3.10.1 **updatedAt** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image23.png?raw=true)
-
 ##### 2.2.2.1.3.10.2 **updatedAt** properties
 
 <table><thead><tr><td>Property</td><td>Value</td></tr></thead><tbody><tr><td>Name</td><td>updatedAt</td></tr><tr><td>Technical name</td><td></td></tr><tr><td>Activated</td><td>true</td></tr><tr><td>Id</td><td></td></tr><tr><td>Type</td><td>date</td></tr><tr><td>Description</td><td><div class="docs-markdown"></div></td></tr><tr><td>Dependencies</td><td></td></tr><tr><td>Required</td><td>true</td></tr><tr><td>Primary key</td><td>false</td></tr><tr><td>Foreign collection</td><td></td></tr><tr><td>Foreign field</td><td></td></tr><tr><td>Relationship type</td><td></td></tr><tr><td>Default</td><td></td></tr><tr><td>Sample</td><td>ISODate("2020-11-04T18:29:28.599Z")</td></tr><tr><td>Comments</td><td><div class="docs-markdown"></div></td></tr></tbody></table>
@@ -427,7 +398,6 @@ Child field(s):
 
 ##### 2.2.2.1.3.11.1 **\_\_v** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image24.png?raw=true)
 
 ##### 2.2.2.1.3.11.2 **\_\_v** properties
 
@@ -623,7 +593,6 @@ db.users.createIndex(
 
 ### <a id="ec565a90-34fb-11eb-880d-bfcd2d7288f6"></a>2.3 Database **taskSchema.js**
 
-![Hackolade image](/backend_diagrams/image25.png?raw=true)
 
 ##### 2.3.1 **taskSchema.js** Properties
 
@@ -635,7 +604,6 @@ db.users.createIndex(
 
 ##### 2.3.2.1.1 **taskSchema** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image26.png?raw=true)
 
 ##### 2.3.2.1.2 **taskSchema** Properties
 
@@ -649,7 +617,6 @@ db.users.createIndex(
 
 ##### 2.3.2.1.3.1.1 **description** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image27.png?raw=true)
 
 ##### 2.3.2.1.3.1.2 **description** properties
 
@@ -659,7 +626,6 @@ db.users.createIndex(
 
 ##### 2.3.2.1.3.2.1 **dueDate** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image28.png?raw=true)
 
 ##### 2.3.2.1.3.2.2 **dueDate** properties
 
@@ -669,7 +635,6 @@ db.users.createIndex(
 
 ##### 2.3.2.1.3.3.1 **completed** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image29.png?raw=true)
 
 ##### 2.3.2.1.3.3.2 **completed** properties
 
@@ -679,7 +644,7 @@ db.users.createIndex(
 
 ##### 2.3.2.1.3.4.1 **owner** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image30.png?raw=true)
+
 
 ##### 2.3.2.1.3.4.2 **owner** properties
 
@@ -776,7 +741,6 @@ db.createCollection( "taskSchema",{
 
 ### <a id="f15e5920-34fb-11eb-880d-bfcd2d7288f6"></a>2.4 Database **userSchema.js**
 
-![Hackolade image](/backend_diagrams/image31.png?raw=true)
 
 ##### 2.4.1 **userSchema.js** Properties
 
@@ -788,7 +752,6 @@ db.createCollection( "taskSchema",{
 
 ##### 2.4.2.1.1 **userSchema** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image32.png?raw=true)
 
 ##### 2.4.2.1.2 **userSchema** Properties
 
@@ -802,7 +765,6 @@ db.createCollection( "taskSchema",{
 
 ##### 2.4.2.1.3.1.1 **name** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image33.png?raw=true)
 
 ##### 2.4.2.1.3.1.2 **name** properties
 
@@ -812,7 +774,6 @@ db.createCollection( "taskSchema",{
 
 ##### 2.4.2.1.3.2.1 **email** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image34.png?raw=true)
 
 ##### 2.4.2.1.3.2.2 **email** properties
 
@@ -822,7 +783,6 @@ db.createCollection( "taskSchema",{
 
 ##### 2.4.2.1.3.3.1 **password** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image35.png?raw=true)
 
 ##### 2.4.2.1.3.3.2 **password** properties
 
@@ -832,7 +792,6 @@ db.createCollection( "taskSchema",{
 
 ##### 2.4.2.1.3.4.1 **tokens** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image36.png?raw=true)
 
 ##### 2.4.2.1.3.4.2 **tokens** Hierarchy
 
@@ -850,7 +809,6 @@ Child field(s):
 
 ##### 2.4.2.1.3.5.1 **\[0\]** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image37.png?raw=true)
 
 ##### 2.4.2.1.3.5.2 **\[0\]** Hierarchy
 
@@ -868,7 +826,6 @@ Child field(s):
 
 ##### 2.4.2.1.3.6.1 **token** Tree Diagram
 
-![Hackolade image](/backend_diagrams/image38.png?raw=true)
 
 ##### 2.4.2.1.3.6.2 **token** properties
 
