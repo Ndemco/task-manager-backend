@@ -9,7 +9,6 @@ const goalSchema = new mongoose.Schema({
     startDate: {
         type: Date,
         required: true
-        
     },
     endDate: {
         type: Date,
@@ -40,12 +39,13 @@ goalSchema.virtual('tasks', {
     foreignField: 'owner'
 })
 
+goalSchema.methods.updatePercentComplete = async(numTasks, numComplete) => {
+    const user = await User.findOne({ email })
 
-goalSchema.pre('update', async function(next) {
+}
+
+goalSchema.pre('/goals/read', async function(next) {
     const goal = this
-    var numTasks = 0
-    var numComplete = 0
-    var percentComplete = 0
 
     try {
         //populate all the user's tasks from within date range of goal
@@ -69,7 +69,8 @@ goalSchema.pre('update', async function(next) {
     } catch (e) {
         console.log('Error: ' + e)
     }
-    next()
+
+    await goal.save()
 })
 
 const Goal = mongoose.model('Goals', goalSchema)
